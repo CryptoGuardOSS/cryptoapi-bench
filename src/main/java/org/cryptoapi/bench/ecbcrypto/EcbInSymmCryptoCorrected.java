@@ -16,7 +16,7 @@ public class EcbInSymmCryptoCorrected {
     }
 
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        EcbInSymmCryptoBBCorrected bc = new EcbInSymmCryptoBBCorrected();
+        EcbInSymmCryptoCorrected bc = new EcbInSymmCryptoCorrected();
         bc.go();
     }
 }
