@@ -16,7 +16,7 @@ public class BrokenCryptoCorrected {
     }
 
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        BrokenCryptoBBCase1 bc = new BrokenCryptoBBCase1();
+        BrokenCryptoBBCorrected bc = new BrokenCryptoBBCorrected();
         bc.go();
     }
 }
