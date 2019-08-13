@@ -13,7 +13,8 @@ public class StaticInitializationVectorABICase2 {
     public static final String DEFAULT_INITIALIZATION = "abcde";
     private static char[] INITIALIZATION;
     private static char[] initialization;
-    public void go(IvParameterSpec ivSpec) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public void go() throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+        IvParameterSpec ivSpec = new IvParameterSpec(new byte[]{Byte.parseByte(String.valueOf(initialization))});
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecretKey key = keyGen.generateKey();
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -31,7 +32,7 @@ public class StaticInitializationVectorABICase2 {
         StaticInitializationVectorABICase2 siv = new StaticInitializationVectorABICase2();
         go2();
         go3();
-        IvParameterSpec ivSpec = new IvParameterSpec(new byte[]{Byte.parseByte(String.valueOf(initialization))});
-        siv.go(ivSpec);
+
+        siv.go();
     }
 }

@@ -8,9 +8,9 @@ public class LessThan1000IterationPBEABICase1 {
     public static void main(){
         LessThan1000IterationPBEABICase1 lt = new LessThan1000IterationPBEABICase1();
         int count = 20;
-        lt.key2(count);
+        lt.go(count);
     }
-    public void key2(int count){
+    public void go(int count){
         SecureRandom random = new SecureRandom();
         PBEParameterSpec pbeParamSpec = null;
         byte[] salt = new byte[32];

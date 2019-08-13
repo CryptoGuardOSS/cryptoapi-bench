@@ -10,6 +10,30 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+
+/*
+public class StaticInitializationVectorCorrected {
+    public void go() throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+        SecretKey key = keyGen.generateKey();
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+
+        SecureRandom sr = new SecureRandom();
+
+        BigInteger i = BigInteger.valueOf(sr.nextInt());
+        byte [] bytes = i.toByteArray();
+        IvParameterSpec ivSpec = new IvParameterSpec(bytes);
+
+        cipher.init(Cipher.ENCRYPT_MODE,key,ivSpec);
+    }
+
+    public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+        StaticInitializationVectorCorrected siv = new StaticInitializationVectorCorrected();
+        siv.go();
+    }
+}
+*/
+
 public class StaticInitializationVectorCorrected {
     public void go() throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

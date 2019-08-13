@@ -5,7 +5,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 public class DummyCertValidationCase1 implements X509TrustManager {
-
     private X509TrustManager trustManager;
     @Override
     public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {

@@ -9,7 +9,7 @@ public class PredictablePBEPasswordABSCase1 {
     public PredictablePBEPasswordABSCase1(){
         String password = "sagar";
         crypto = new CryptoPredictablePBE(password);
-        crypto.encrypt("");
+        crypto.method1("");
     }
 }
 
@@ -24,7 +24,7 @@ class CryptoPredictablePBE {
         defPassword = password;
     }
 
-    public void encrypt(String passedPassword) {
+    public void method1(String passedPassword) {
 
         if(passedPassword.isEmpty()){
             passedPassword = defPassword;

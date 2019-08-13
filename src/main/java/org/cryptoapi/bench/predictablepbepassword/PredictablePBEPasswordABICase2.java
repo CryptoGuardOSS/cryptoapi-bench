@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 public class PredictablePBEPasswordABICase2 {
     private PBEKeySpec pbeKeySpec = null;
     private PBEParameterSpec pbeParamSpec = null;
-    //public static final String DEFAULT_ENCRYPT_KEY = "sagar";
     public static String KEY = "sagar";
     public static char [] DEFAULT_ENCRYPT_KEY = KEY.toCharArray();
     private static char[] ENCRYPT_KEY;

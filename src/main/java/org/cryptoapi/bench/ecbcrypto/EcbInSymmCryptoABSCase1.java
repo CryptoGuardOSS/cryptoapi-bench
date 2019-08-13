@@ -9,9 +9,10 @@ import java.security.NoSuchAlgorithmException;
 
 public class EcbInSymmCryptoABSCase1 {
     CryptoECB1 crypto;
-    public EcbInSymmCryptoABSCase1() {
+    public EcbInSymmCryptoABSCase1() throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String cryptoAlgo = "AES/ECB/PKCS5Padding";
         crypto = new CryptoECB1(cryptoAlgo);
+        crypto.method1("");
     }
 }
 
@@ -22,7 +23,7 @@ class CryptoECB1 {
         defAlgo = algo;
     }
 
-    public void encrypt(String passedAlgo) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+    public void method1(String passedAlgo) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
 
         if(passedAlgo.isEmpty()){
             passedAlgo = defAlgo;

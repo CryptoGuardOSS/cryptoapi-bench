@@ -7,8 +7,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCryptoABSCase5 {
     Crypto6 crypto;
-    public BrokenCryptoABSCase5() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public BrokenCryptoABSCase5() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         crypto = new Crypto6("IDEA");
+        crypto.encrypt("abc","");
     }
 }
 

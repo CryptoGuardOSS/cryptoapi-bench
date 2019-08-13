@@ -8,7 +8,8 @@ import javax.crypto.spec.IvParameterSpec;
 import java.security.*;
 
 public class StaticInitializationVectorABICase1 {
-    public void go(IvParameterSpec ivSpec) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public void go(byte[] bytes) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+        IvParameterSpec ivSpec = new IvParameterSpec(bytes);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecretKey key = keyGen.generateKey();
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -19,7 +20,6 @@ public class StaticInitializationVectorABICase1 {
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         StaticInitializationVectorABICase1 siv = new StaticInitializationVectorABICase1();
         byte [] bytes = "abcde".getBytes();
-        IvParameterSpec ivSpec = new IvParameterSpec(bytes);
-        siv.go(ivSpec);
+        siv.go(bytes);
     }
 }

@@ -11,9 +11,9 @@ public class PredictablePBEPasswordABICase1 {
     public static void main(String [] args){
         PredictablePBEPasswordABICase1 ckp = new PredictablePBEPasswordABICase1();
         String password = "sagar";
-        ckp.key(password);
+        ckp.go(password);
     }
-    public void key(String password) {
+    public void go(String password) {
         byte [] salt = new byte[16];
         SecureRandom sr = new SecureRandom();
         sr.nextBytes(salt);

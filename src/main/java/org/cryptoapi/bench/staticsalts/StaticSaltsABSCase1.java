@@ -7,6 +7,7 @@ public class StaticSaltsABSCase1 {
     public StaticSaltsABSCase1() {
         byte[] salt = {(byte) 0xa2};
         crypto = new CryptoStaticSalt1(salt);
+        crypto.method1(null);
     }
 }
 
@@ -18,7 +19,7 @@ class CryptoStaticSalt1 {
         defSalt = salt;
     }
 
-    public void encrypt(byte[] passedSalt)  {
+    public void method1(byte[] passedSalt)  {
 
         passedSalt = defSalt;
         int count = 1020;

@@ -23,7 +23,7 @@ public class PredictableCryptographicKeyABSCase1 {
 
     byte[] encryptPass(String pass, String src) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         String keyStr = PredictableCryptographicKeyABSCase1.getKey(src);
-        return crypto.encrypt(pass, keyStr);
+        return crypto.method1(pass, keyStr);
     }
 
     public static String getKey(String s) {
@@ -41,7 +41,7 @@ class Crypto {
         defaultKey = defkey;
     }
 
-    public byte[] encrypt(String txt, String key) throws UnsupportedEncodingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+    public byte[] method1(String txt, String key) throws UnsupportedEncodingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         if(key.isEmpty()){
             key = defaultKey;
         }

@@ -8,7 +8,7 @@ public class HttpProtocolABSCase1 {
     public HttpProtocolABSCase1() throws MalformedURLException {
         String url = "http://gmail.com";
         crypto = new CryptoHTTP1(url);
-        crypto.encrypt("");
+        crypto.method1("");
     }
 }
 
@@ -19,7 +19,7 @@ class CryptoHTTP1 {
         defURL = url;
     }
 
-    public void encrypt(String passedURL) throws MalformedURLException {
+    public void method1(String passedURL) throws MalformedURLException {
 
         if(passedURL.isEmpty()){
             passedURL = defURL;

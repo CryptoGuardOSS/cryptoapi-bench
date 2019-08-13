@@ -8,9 +8,9 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
 public class InsecureAsymmetricCipherABICase2 {
-    public static final String DEFAULT_KEY_SIZE = "1024";
-    private static char[] KEY_SIZE;
-    private static char[] keysize;
+    public static final int DEFAULT_KEY_SIZE = 1024;
+    private static int KEY_SIZE;
+    private static int keysize;
     public void go(KeyPairGenerator kgp, KeyPair kp) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
 
         Cipher cipher = Cipher.getInstance("RSA");
@@ -28,7 +28,7 @@ public class InsecureAsymmetricCipherABICase2 {
         System.out.println(message);
     }
     private static void go2(){
-        KEY_SIZE = DEFAULT_KEY_SIZE.toCharArray();
+        KEY_SIZE = DEFAULT_KEY_SIZE;
     }
     private static void go3(){
         keysize = KEY_SIZE;
@@ -39,7 +39,7 @@ public class InsecureAsymmetricCipherABICase2 {
         go2();
         go3();
         KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
-        kgp.initialize(Integer.parseInt(String.valueOf(keysize)));
+        kgp.initialize(keysize);
         KeyPair kp = kgp.generateKeyPair();
         bc.go(kgp,kp);
     }

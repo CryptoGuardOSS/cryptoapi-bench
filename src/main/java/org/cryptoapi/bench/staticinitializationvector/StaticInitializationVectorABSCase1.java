@@ -11,29 +11,29 @@ import java.security.NoSuchAlgorithmException;
 
 public class StaticInitializationVectorABSCase1 {
     CryptoStaticIV1 crypto;
-    public StaticInitializationVectorABSCase1() {
+    public StaticInitializationVectorABSCase1() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException {
         byte [] bytes = "abcde".getBytes();
-        IvParameterSpec ivSpec = new IvParameterSpec(bytes);
-        crypto = new CryptoStaticIV1(ivSpec);
+
+        crypto = new CryptoStaticIV1(bytes);
+        crypto.method1(null);
     }
 }
 
 class CryptoStaticIV1 {
-    IvParameterSpec defIVSpec;
+    byte [] defIV;
 
-    public CryptoStaticIV1(IvParameterSpec ivSpec) {
-        defIVSpec = ivSpec;
+    public CryptoStaticIV1(byte[] bytes) {
+        defIV = bytes;
     }
 
-    public void encrypt(IvParameterSpec passedIVSpec) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public void method1(byte[] passedIV) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
 
-        passedIVSpec = defIVSpec;
-
-
+        passedIV = defIV;
+        IvParameterSpec ivSpec = new IvParameterSpec(passedIV);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecretKey key = keyGen.generateKey();
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE,key,passedIVSpec);
+        cipher.init(Cipher.ENCRYPT_MODE,key,ivSpec);
 
     }
 }

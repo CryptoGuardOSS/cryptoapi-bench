@@ -10,8 +10,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenHashABSCase2 {
     CryptoHash2 crypto;
-    public BrokenHashABSCase2() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public BrokenHashABSCase2() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         crypto = new CryptoHash2("MD5");
+        crypto.encrypt("abc","");
     }
 }
 

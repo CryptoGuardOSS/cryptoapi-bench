@@ -10,9 +10,10 @@ import java.security.SecureRandom;
 
 public class PredictableSeedsABSCase2 {
     CryptoPredictableSeed2 crypto;
-    public PredictableSeedsABSCase2() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public PredictableSeedsABSCase2() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         byte seed = 100;
         crypto = new CryptoPredictableSeed2(seed);
+        crypto.method1((byte) 20);
     }
 }
 
@@ -23,7 +24,7 @@ class CryptoPredictableSeed2 {
         defSeed = seed;
     }
 
-    public void encrypt(byte passedSeed) throws UnsupportedEncodingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public void method1(byte passedSeed) throws UnsupportedEncodingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         passedSeed = defSeed;
         SecureRandom sr = new SecureRandom(new byte[]{passedSeed});

@@ -7,8 +7,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCryptoABSCase2 {
     Crypto3 crypto;
-    public BrokenCryptoABSCase2() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public BrokenCryptoABSCase2() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         crypto = new Crypto3("Blowfish");
+        crypto.encrypt("abc","");
     }
 }
 

@@ -11,8 +11,10 @@ import java.security.SecureRandom;
 
 public class LessThan1000IterationPBEABSCase1 {
     CryptoPBEIteration1 crypto;
-    public LessThan1000IterationPBEABSCase1() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public LessThan1000IterationPBEABSCase1() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         crypto = new CryptoPBEIteration1(20);
+        crypto.method1(0);
+
     }
 }
 
@@ -23,7 +25,7 @@ class CryptoPBEIteration1 {
         defcount = count;
     }
 
-    public void encrypt(int passedCount) throws UnsupportedEncodingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public void method1(int passedCount) throws UnsupportedEncodingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         passedCount = defcount;
 

@@ -9,9 +9,10 @@ import java.security.cert.CertificateException;
 
 public class PredictableKeyStorePasswordABSCase1 {
     CryptoPredictableKeyStorePassword1 crypto;
-    public PredictableKeyStorePasswordABSCase1() {
+    public PredictableKeyStorePasswordABSCase1() throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
         String key = "changeit";
         crypto = new CryptoPredictableKeyStorePassword1(key);
+        crypto.method1("");
     }
 }
 
@@ -23,7 +24,7 @@ class CryptoPredictableKeyStorePassword1 {
         defKey = key;
     }
 
-    public void encrypt(String passedKey) throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
+    public void method1(String passedKey) throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
 
         passedKey = defKey;
 
