@@ -10,11 +10,11 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class StaticInitializationVectorABICase2 {
-    public static final String DEFAULT_INITIALIZATION = "abcde";
+    public static final String DEFAULT_INITIALIZATION = "abcdabcdabcdabcd";
     private static char[] INITIALIZATION;
     private static char[] initialization;
     public void go() throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
-        IvParameterSpec ivSpec = new IvParameterSpec(new byte[]{Byte.parseByte(String.valueOf(initialization))});
+        IvParameterSpec ivSpec = new IvParameterSpec(String.valueOf(initialization).getBytes());
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecretKey key = keyGen.generateKey();
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
